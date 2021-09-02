@@ -238,7 +238,7 @@ class Main():
                     print(len(Main.enemylist))
                 
                 if event.key is pygame.K_0:
-                    if eagle.live == False:
+                    if Main.eagle.live == False:
                         pass
 
             if event.type is pygame.KEYUP:

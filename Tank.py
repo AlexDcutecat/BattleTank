@@ -1,4 +1,5 @@
 from GlobalVariable import *
+from Barrier import HomeWall
 from Bullet import *
 from EffectAnime import *
 import time
