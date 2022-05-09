@@ -10,7 +10,7 @@ SCREEN_B=508  #172+13*32
 SCREEN_R=508
 
 #窗口大小
-SCREEN_X=800
+SCREEN_X=600
 SCREEN_Y=600
 
 #难度，范围大于2，数值越低难度越高
