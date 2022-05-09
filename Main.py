@@ -155,10 +155,10 @@ class Main():
     
     def event_get1(self):
         for event in pygame.event.get():
-            if event.type is pygame.QUIT:
+            if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
-            if event.type is pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
                 #选择
                 if event.key in direc[0]:
                     if event.key==pygame.K_w:
@@ -171,16 +171,16 @@ class Main():
                             Main.pointer_pos[1]=1
                  
                 #按退格键确认
-                if event.key is pygame.K_BACKSPACE:
+                if event.key == pygame.K_BACKSPACE:
                     Main.game_start=True
 
     #接收事件
     def event_get2(self):
         for event in pygame.event.get():
-            if event.type is pygame.QUIT:
+            if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
-            if event.type is pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
                 #移动
                 if event.key in direc[0]:
                     Main.tank1.changeDir(direc1[event.key])
@@ -191,25 +191,25 @@ class Main():
                     dir_key2[event.key]=1
 
                 #按J发射子弹
-                if event.key is pygame.K_j and Main.tank1.live and len(Main.mybulletlist1)<=1 and Main.tank1.effect.live is False:
+                if event.key == pygame.K_j and Main.tank1.live and len(Main.mybulletlist1)<=1 and Main.tank1.effect.live is False:
                     play_sound('attack')
                     Main.mybulletlist1.add(Main.tank1.fire())
                 
-                if event.key is pygame.K_SLASH and Main.tank2.live and len(Main.mybulletlist2)<=1 and Main.tank2.effect.live is False:
+                if event.key == pygame.K_SLASH and Main.tank2.live and len(Main.mybulletlist2)<=1 and Main.tank2.effect.live is False:
                     play_sound('attack')
                     Main.mybulletlist2.add(Main.tank2.fire())
                 
-                if event.key is pygame.K_j and Main.game_process==2:
+                if event.key == pygame.K_j and Main.game_process==2:
                     Main.current_stage+=1
                     if Main.current_stage>=100:
                         Main.current_stage=1
-                if event.key is pygame.K_k and Main.game_process==2:
+                if event.key == pygame.K_k and Main.game_process==2:
                     Main.current_stage-=1
                     if Main.current_stage<=0:
                         Main.current_stage=99
                 
                 #按退格键暂停游戏
-                if event.key is pygame.K_BACKSPACE:
+                if event.key == pygame.K_BACKSPACE:
                     if Main.game_process==3:
                         play_sound('pause')
                         Main.game_pause=not Main.game_pause
@@ -219,7 +219,7 @@ class Main():
                         Main.game_process=3
 
                 #按数字1键复活
-                if event.key is pygame.K_1:
+                if event.key == pygame.K_1:
                     if Main.tank1.live == False:
                         Main.tank1=myTank(self.screen,SCREEN_L+4*32,SCREEN_T+12*32,1)
                         Main.tank1.set_unbeatable_state()
@@ -232,16 +232,16 @@ class Main():
                             Main.rebornstarlist.add(Main.tank2.effect)
                             Main.mytanklist.add(Main.tank2)
                 
-                if event.key is pygame.K_p:
+                if event.key == pygame.K_p:
                     
                     print(Main.enemytankcount)
                     print(len(Main.enemylist))
                 
-                if event.key is pygame.K_0:
+                if event.key == pygame.K_0:
                     if Main.eagle.live == False:
                         pass
 
-            if event.type is pygame.KEYUP:
+            if event.type == pygame.KEYUP:
                 #按键松开改变按键状态 
                 if event.key in direc[0]:
                     dir_key1[event.key]=0
@@ -260,10 +260,10 @@ class Main():
     
     def event_get3(self):
         for event in pygame.event.get():
-            if event.type is pygame.QUIT:
+            if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
-            if event.type is pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
                 if event.key in direc[0]:
                     if event.key==pygame.K_w:
                         Main.creat_pointer_pressbuf['UP']=1
@@ -307,7 +307,7 @@ class Main():
                         if Main.creat_pointer_num<0:
                             Main.creat_pointer_num=13
                         tankmap_mapping[Main.creat_pointer_pos[1]][Main.creat_pointer_pos[0]]=Main.creat_pointer_num
-                if event.key is pygame.K_BACKSPACE:
+                if event.key == pygame.K_BACKSPACE:
                     Main.process=1
                     Main.game_process=1
                 if event.key == pygame.K_p:
@@ -330,7 +330,7 @@ class Main():
                         for j in range(13):
                             tankmap_mapping[i][j]=0
                         
-            if event.type is pygame.KEYUP:
+            if event.type == pygame.KEYUP:
                 if event.key in direc[0]:
                     if event.key==pygame.K_w:
                         Main.creat_pointer_pressbuf['UP']=0
